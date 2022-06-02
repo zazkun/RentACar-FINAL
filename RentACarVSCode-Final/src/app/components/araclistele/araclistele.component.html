@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Araç Listesi</h1>
+  <h3><b>Araç Adı : </b>{{secArac?.aracAdi}}</h3>
+  <h3><b>Araç Fiyatı : </b>{{secArac?.aracFiyat}}</h3>
+    <button mat-fab color="accent" matTooltip="Araçlar" color="primary" [routerLink]="['/arac']">
+      <mat-icon aria-label="label" >arrow_back</mat-icon>
+    </button>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="aracAdi">
+      <mat-header-cell *matHeaderCellDef> Araç Model
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.aracAdi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="aracPlaka">
+      <mat-header-cell *matHeaderCellDef> Araç Plaka
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.aracPlaka}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="aracFiyat">
+      <mat-header-cell *matHeaderCellDef> Araç Fiyatı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.aracFiyat}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="aracKm">
+      <mat-header-cell *matHeaderCellDef> Araç Kilometre
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.aracKm}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="aracHiz">
+      <mat-header-cell *matHeaderCellDef> Araç Max Hızı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">{{kayit.aracHiz}} </mat-cell>
+    </ng-container>
+
+   
+      <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit" matTooltip="Ders Kaydını Sil">
+        <button mat-icon-button color="warn">
+          <mat-icon aria-label="label" >delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{dialogBaslik}}</span>
+</mat-toolbar>
+<div class="container">
+<form [formGroup]="frm">
+  <mat-form-field appearance="outline" style="width: 50%;">
+    <mat-label>Kategori Seçiniz</mat-label>
+
+  <mat-select placeholder="Kategori Seçiniz" (selectionChange)="KategoriSec($event.value)" name="kategoriId"  >
+    <mat-option [value]="kategori.kategoriId" *ngFor="let kategori of kategoriler ">{{kategori.kategoriAdi}}</mat-option>
+  </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Araç Model</mat-label>
+    <input matInput placeholder="Araç Model" formControlName="aracAdi" name="aracAdi" required type="text">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Araç Plaka</mat-label>
+    <input matInput placeholder="Araç Plaka" formControlName="aracPlaka" name="aracPlaka" required type="text">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Araç Fiyat</mat-label>
+    <input matInput placeholder="Araç Fiyat" formControlName="aracFiyat" name="aracFiyat" required type="text">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Araç Kilometre</mat-label>
+    <input matInput placeholder="Araç Kilometre" formControlName="aracKm" name="aracKm" required type="number">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Aracın Max Hızı</mat-label>
+    <input matInput placeholder="Aracın Max Hızı" formControlName="aracHiz" name="aracHiz" required type="number">
+  </mat-form-field>
+
+</form>
+<button mat-raised-button color="primary"(click)="dialogRef.close(frm.value)"  [disabled]="frm.invalid">Kaydet</button>&nbsp;
+<button mat-raised-button color="warn" (click)="dialogRef.close()">İptal</button>
+
+</div>
+
+
+
+
+
